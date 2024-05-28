@@ -8,7 +8,7 @@
 
 
 <p align="center">
-        &nbsp<a href="https://ima-lmms.github.io/">Project Page</a> &nbsp | &nbsp<a href="https://arxiv.org/abs/2310.">Paper </a>&nbsp 
+        &nbsp<a href="https://ima-lmms.github.io/">Project Page</a> &nbsp | &nbsp<a href="https://arxiv.org/abs/2405.16700">Paper </a>&nbsp 
 </p>
 
 # (IMA) Implicit Multimodal Alignment: On the Generalization of Frozen LLMs to Multimodal Inputs
