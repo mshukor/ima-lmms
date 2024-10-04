@@ -1,0 +1,118 @@
+image_res: 224
+# batch_size_train: 16
+batch_size_train: 8
+
+
+
+warm_up: True
+
+
+optimizer: {opt: adamW, lr: 2e-5, weight_decay: 0.02, prompt_lr: 1e-4}
+schedular: {sched: cosine, scheduler_groups: 0 , lr: 2e-5, epochs: 20, min_lr: 1e-6, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 4, cooldown_epochs: 0}
+
+
+# optimizer: {opt: adamW, lr: 2e-4, weight_decay: 0.02, prompt_lr: 1e-3}
+# schedular: {sched: cosine, scheduler_groups: 0 , lr: 2e-4, epochs: 20, min_lr: 1e-5, decay_rate: 1, warmup_lr: 1e-4, warmup_epochs: 4, cooldown_epochs: 0}
+
+use_vis_prefix: True
+# start_layer_idx: 19
+# end_layer_idx: 31
+start_layer_idx: 0
+end_layer_idx: 1
+# start_layer_idx: 1
+# end_layer_idx: 31
+# interaction_step: 4
+# start_layer_idx: 0
+# end_layer_idx: 31
+# select_higher_step: True
+# interaction_step: 4
+
+
+injected_hidden_states: 1
+shared_connector: True
+
+lm_loss_weight: 0.1
+
+unfreeze_text_layer_norm: False
+unfreeze_vision_layer_norm: False
+
+
+num_workers: 4
+
+
+
+replace_added_tokens: True
+
+
+use_cache: False
+
+shift_labels: False
+
+append_eos_token: True
+
+num_beams: 3
+do_sample: False
+
+
+
+# Prompt tuning
+# prompt_tuning: True
+prompt_len: 10
+prompt_lr: 1e-3
+mlp: False
+
+batch_size_test: 16
+
+## save hidden states
+# valid_topk: 40
+# batch_size_test: 1
+# save_hidden_states: True
+# num_beams: 1
+
+interaction_type: cat
+# interaction_type: qsformer
+
+# interaction_type: ['cat', 'ca']
+# target: ['prompt', 'all']
+
+target: prompt
+residual: True
+use_attention_film: True
+interaction_config: {'frozen': False} # qsformer
+
+
+# connector_type: cnn
+connector_type: trans
+multihead_connector: True
+
+## token pruning
+vis_tokens: all
+
+# # baseline
+# connector_config: {'hidden_dim': 256, 'num_heads': 8, 'num_layers': 5, 'output_length': 10, 'activation': 'relu', 'qs_former': True} # qsformer
+
+# # baseline + text cond
+# connector_config: {'hidden_dim': 256, 'num_heads': 8, 'num_layers': 5, 'output_length': 10, 'activation': 'relu', 'qs_former': True, 'qs_former_with_text': True, 'interleaved_qs_former': True, 'cat_with_text': False, 'text_feat_num_layers': 1, 'interleaved_with_text': True, 'ca_with_text': True, 'img_with_text': False}
+
+# # baseline + text cond + img cond
+# connector_config: {'hidden_dim': 256, 'num_heads': 8, 'num_layers': 5, 'output_length': 10, 'activation': 'relu', 'qs_former': True, 'qs_former_with_text': True, 'interleaved_qs_former': True, 'cat_with_text': False, 'text_feat_num_layers': 1, 'interleaved_with_text': True, 'ca_with_text': True, 'img_with_text': True}
+
+
+# baseline + text cond + img cond only embedding features
+connector_config: {'hidden_dim': 256, 'num_heads': 8, 'num_layers': 5, 'output_length': 10, 'activation': 'relu', 'qs_former': True, 'qs_former_with_text': True, 'interleaved_qs_former': True, 'cat_with_text': False, 'text_feat_num_layers': 0, 'interleaved_with_text': True, 'ca_with_text': True, 'img_with_text': True}
+
+
+# # baseline + text cond + img cond + 6lavg
+# vis_tokens: avg6l
+# connector_config: {'hidden_dim': 256, 'num_heads': 8, 'num_layers': 5, 'output_length': 10, 'activation': 'relu', 'qs_former': True, 'qs_former_with_text': True, 'interleaved_qs_former': True, 'cat_with_text': False, 'text_feat_num_layers': 1, 'interleaved_with_text': True, 'ca_with_text': True, 'img_with_text': True}
+# extraction_config: {'extraction': 'avg', 'num_layers': 6,} # ePALM_L_vqa_l0_1_qsformerl10catwithtext_6lavg_clipl, ePALM_L_vqa_l0_1_qsformerl10cawithtextl1_6lavg_clipl
+
+
+inject_outside: True
+
+test_split: karpathy_test # karpathy_test val
+# train_topk: 0.4
+max_length: 45
+
+# train_topk: 0.3
+# valid_topk: 40
