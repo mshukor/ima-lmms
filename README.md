@@ -21,7 +21,7 @@
 <p>
 
 # News
-
+* **[2024.10.12]**: Paper on Skipping Computations in Multimodal LLMs accepted at NeurIPS 2024 RBFM Workshop.
 * **[2024.10.04]**: The code is released. 
 * **[2024.09.25]**: The IMA paper is accepted at NeurIPS 2024. 
 * **[2024.05.27]**: The code will be released soon. 
@@ -33,9 +33,26 @@ This repo contains scripts to analyse LLMs when exposed to multimodal data. In a
 Specifically, we provide the implementation to reproduce the following papers:
 
 * NeurIPS 2024: [Implicit Multimodal Alignment: On the Generalization of Frozen LLMs to Multimodal Inputs](https://arxiv.org/abs/2405.16700)
+* NeurIPS 2024 RBFM Workshop: [Skipping Computations in Multimodal LLMs](https://arxiv.org/abs/2410.09454)
 
 
+# Citation
+If you found this repository useful, you can cite it as:
 
+```
+@article{shukor2024implicit,
+  title={Implicit Multimodal Alignment: On the Generalization of Frozen LLMs to Multimodal Inputs},
+  author={Shukor, Mustafa and Cord, Matthieu},
+  journal={arXiv preprint arXiv:2405.16700},
+  year={2024}
+}
+@article{shukor2024skipping,
+  title={Skipping Computations in Multimodal LLMs},
+  author={Shukor, Mustafa and Cord, Matthieu},
+  journal={arXiv preprint arXiv:2410.09454},
+  year={2024}
+}
+```
 
 
 
@@ -229,15 +246,3 @@ accelerate launch --multi_gpu --mixed_precision=fp16 --num_processes=$NUM_GPUS -
 --with_answers
 ```
 
-
-# Citation
-If you found this repository useful, you can cite it as:
-
-```
-@article{shukor2024implicit,
-  title={Implicit Multimodal Alignment: On the Generalization of Frozen LLMs to Multimodal Inputs},
-  author={Shukor, Mustafa and Cord, Matthieu},
-  journal={arXiv preprint arXiv:2405.16700},
-  year={2024}
-}
-```
